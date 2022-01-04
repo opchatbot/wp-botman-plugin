@@ -2,9 +2,10 @@
 
 /**
  * Plugin Name: WordPress ChatBot WebWidget
- * Plugin URI: https://github.com/stirrell/scc-botman-for-wp
+ * Plugin URI: https://github.com/opchatbot/wp-botman-plugin
  * Description: A WordPress plugin to add BotMan Web Widget.
- * Author: Vincent Chen
+ * Author: OurProperty
+ * Author URI: https://www.ourproperty.com.au/
  * Version: 1.0.0
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -18,19 +19,19 @@ define('CHATBOT_PLUGIN_PATH', plugin_dir_path(__FILE__));
 include CHATBOT_PLUGIN_PATH . 'includes/admin-panel.php';
 
 /**
- * Load the JavaScript and CSS for the BotMan web widget.
+ * Load BotMan web widget.
  */
-function scc_enqueue_pulse_chatbot()
+function botman_enqueue_pulse_chatbot()
 {
     wp_enqueue_script('pma-chatbot-widget', 'https://chatbotuat.ourproperty.com.au/webwidget/build/js/widget.js', null, null, true);
 }
 
-add_action('wp_enqueue_scripts', 'scc_enqueue_pulse_chatbot');
+add_action('wp_enqueue_scripts', 'botman_enqueue_pulse_chatbot');
 
 /**
  * Add the options set by the user for the Chatbot.
  */
-function scc_chatbot_add_widget_code()
+function botman_add_widget_code()
 {
     $botman_chat_server               = get_option('botman_chat_server', 'https://chatbotuat.ourproperty.com.au/botman');
     $botman_chat_iframe               = get_option('botman_chat_iframe', 'https://chatbotuat.ourproperty.com.au/botman/webchat');
@@ -40,7 +41,6 @@ function scc_chatbot_add_widget_code()
     $botman_chat_about_text           = get_option('botman_chat_about_text', 'Powered by BotMan');
     $botman_chat_about_link           = get_option('botman_chat_about_link', 'https://www.ourproperty.com.au/');
 
-    // If any required info is missing, bail out.
     if (empty($botman_chat_server)) {
         return;
     }
@@ -65,4 +65,4 @@ function scc_chatbot_add_widget_code()
     </script>
 <?php }
 
-add_action('wp_footer', 'scc_chatbot_add_widget_code');
+add_action('wp_footer', 'botman_add_widget_code');

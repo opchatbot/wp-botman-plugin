@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Create the settings page for the BotMan widget.
+ * Create settings page for the BotMan widget.
  */
 function botman_add_settings_page()
 {
