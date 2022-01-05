@@ -49,7 +49,7 @@ function botman_add_widget_code()
     <script>
         var botmanWidget = {
             title: '<?php echo get_option('botman_chat_title'); ?>',
-            introMessage: '<?php echo get_option('botman_chat_intro_message'); ?>',
+            introMessage: "<?php echo get_option('botman_chat_intro_message'); ?>",
             bubbleAvatarUrl: '<?php echo get_option('botman_chat_widget_image'); ?>',
             aboutText: '<?php echo $botman_chat_about_text; ?>',
             aboutLink: '<?php echo $botman_chat_about_link; ?>',
