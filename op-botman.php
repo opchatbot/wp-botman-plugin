@@ -23,7 +23,7 @@ include CHATBOT_PLUGIN_PATH . 'includes/admin-panel.php';
  */
 function botman_enqueue_pulse_chatbot()
 {
-    wp_enqueue_script('pma-chatbot-widget', 'https://chatbotuat.ourproperty.com.au/webwidget/build/js/widget.js', null, null, true);
+    wp_enqueue_script('pma-chatbot-widget', 'https://chatbot.ourproperty.com.au/webwidget/build/js/widget.js', null, null, true);
 }
 
 add_action('wp_enqueue_scripts', 'botman_enqueue_pulse_chatbot');
@@ -33,9 +33,9 @@ add_action('wp_enqueue_scripts', 'botman_enqueue_pulse_chatbot');
  */
 function botman_add_widget_code()
 {
-    $botman_chat_server               = get_option('botman_chat_server', 'https://chatbotuat.ourproperty.com.au/botman');
-    $botman_chat_iframe               = get_option('botman_chat_iframe', 'https://chatbotuat.ourproperty.com.au/botman/webchat');
-    $botman_chat_base_url             = get_option('botman_chat_base_url', 'https://chatbotuat.ourproperty.com.au');
+    $botman_chat_server               = get_option('botman_chat_server', 'https://chatbot.ourproperty.com.au/botman');
+    $botman_chat_iframe               = get_option('botman_chat_iframe', 'https://chatbot.ourproperty.com.au/botman/webchat');
+    $botman_chat_base_url             = get_option('botman_chat_base_url', 'https://chatbot.ourproperty.com.au');
     $botman_chat_placeholder_text     = get_option('botman_chat_placeholder_text', 'Send a message...');
     $botman_chat_widget_color         = get_option('botman_chat_widget_color', '#408591');
     $botman_chat_about_text           = get_option('botman_chat_about_text', 'Powered by BotMan');
