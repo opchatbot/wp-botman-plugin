@@ -38,7 +38,7 @@ function botman_add_widget_code()
     $botman_chat_base_url             = get_option('botman_chat_base_url', 'https://chatbot.ourproperty.com.au');
     $botman_chat_placeholder_text     = get_option('botman_chat_placeholder_text', 'Send a message...');
     $botman_chat_widget_color         = get_option('botman_chat_widget_color', '#408591');
-    $botman_chat_about_text           = get_option('botman_chat_about_text', 'Powered by BotMan');
+    $botman_chat_about_text           = get_option('botman_chat_about_text', 'Powered by OurProperty');
     $botman_chat_about_link           = get_option('botman_chat_about_link', 'https://www.ourproperty.com.au/');
 
     if (empty($botman_chat_server)) {
@@ -48,18 +48,18 @@ function botman_add_widget_code()
 ?>
     <script>
         var botmanWidget = {
-            title: '<?php echo get_option('botman_chat_title'); ?>',
-            introMessage: "<?php echo get_option('botman_chat_intro_message'); ?>",
-            bubbleAvatarUrl: '<?php echo get_option('botman_chat_widget_image'); ?>',
-            aboutText: '<?php echo $botman_chat_about_text; ?>',
-            aboutLink: '<?php echo $botman_chat_about_link; ?>',
+            title: '<?php echo esc_js(get_option('botman_chat_title')); ?>',
+            introMessage: '<?php echo esc_js(get_option('botman_chat_intro_message')); ?>',
+            bubbleAvatarUrl: '<?php echo esc_url(get_option('botman_chat_widget_image')); ?>',
+            aboutText: '<?php echo esc_js($botman_chat_about_text); ?>',
+            aboutLink: '<?php echo esc_url($botman_chat_about_link); ?>',
             mainColor: '<?php echo $botman_chat_widget_color ?>',
-            frameEndpoint: '<?php echo $botman_chat_iframe; ?>',
-            chatServer: '<?php echo $botman_chat_server; ?>',
-            baseURL: '<?php echo $botman_chat_base_url; ?>',
+            frameEndpoint: '<?php echo esc_url($botman_chat_iframe); ?>',
+            chatServer: '<?php echo esc_url($botman_chat_server); ?>',
+            baseURL: '<?php echo esc_url($botman_chat_base_url); ?>',
             desktopHeight: "600px",
             desktopWidth: "570px",
-            placeholderText: '<?php echo $botman_chat_placeholder_text; ?>',
+            placeholderText: '<?php echo esc_js($botman_chat_placeholder_text); ?>',
             userId: '<?php echo wp_generate_uuid4() ?>'
         };
     </script>
